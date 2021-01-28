@@ -1,0 +1,13 @@
+name: Ping
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  Ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping
+        run: |
+          curl -s -o /dev/null https://app.pymedphys.com -w ''%{http_code}''
